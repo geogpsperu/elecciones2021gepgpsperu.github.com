@@ -41,34 +41,33 @@
         }
         function pop_Elecciones2davuelta_0(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Departamento:</th>\
-                        <td>' + (feature.properties['NOMBDEP'] !== null ? autolinker.link(feature.properties['NOMBDEP'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Provincia:</th>\
-                        <td>' + (feature.properties['NOMBPROV'] !== null ? autolinker.link(feature.properties['NOMBPROV'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Distrito:</th>\
-                        <td>' + (feature.properties['NOMBDIST'] !== null ? autolinker.link(feature.properties['NOMBDIST'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Perú Libre (2da vuelta):</th>\
-                        <td>' + (feature.properties['CASTILLO'] !== null ? autolinker.link(feature.properties['CASTILLO'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Fuerza Popular (2da vuelta):</th>\
-                        <td>' + (feature.properties['FUJIMORI'] !== null ? autolinker.link(feature.properties['FUJIMORI'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Fuerza Popular (1ra vuelta):</th>\
-                        <td>' + (feature.properties['VOTOS_P11'] !== null ? autolinker.link(feature.properties['VOTOS_P11'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Perú Libre (1ra vuelta):</th>\
-                        <td>' + (feature.properties['VOTOS_P16'] !== null ? autolinker.link(feature.properties['VOTOS_P16'].toLocaleString()) : '') + '</td>\
-                    </tr>\
+                      <tr>\
+    <td>&nbsp;</td>\
+    <td><center><b>Primera </br> vuelta</b></center></td>\
+    <td><center><b>Segunda </br> vuelta</b></center></td>\
+  </tr>\
+  <tr>\
+    <td><b>Pedro Castillo</b></td>\
+    <td><center>' + (feature.properties['VOTOS_P16'] !== null ? autolinker.link(feature.properties['VOTOS_P16'].toLocaleString()) : '') + '</center></td>\
+    <td><center>' + (feature.properties['CASTILLO'] !== null ? autolinker.link(feature.properties['CASTILLO'].toLocaleString()) : '') + '</center></td>\
+  </tr>\
+  <tr>\
+    <td><b>Keiko Fujimori</b></td>\
+    <td><center>' + (feature.properties['VOTOS_P11'] !== null ? autolinker.link(feature.properties['VOTOS_P11'].toLocaleString()) : '') + '</center></td>\
+    <td><center>' + (feature.properties['FUJIMORI'] !== null ? autolinker.link(feature.properties['FUJIMORI'].toLocaleString()) : '') + '</center></td>\
+  </tr>\
+  <tr>\
+    <td>Departamento:</td>\
+    <td colspan="2">' + (feature.properties['NOMBDEP'] !== null ? autolinker.link(feature.properties['NOMBDEP'].toLocaleString()) : '') + '</td>\
+  </tr>\
+  <tr>\
+    <td>Provincia:</td>\
+    <td colspan="2">' + (feature.properties['NOMBPROV'] !== null ? autolinker.link(feature.properties['NOMBPROV'].toLocaleString()) : '') + '</td>\
+  </tr>\
+  <tr>\
+    <td>Distrito:</td>\
+    <td colspan="2">' + (feature.properties['NOMBDIST'] !== null ? autolinker.link(feature.properties['NOMBDIST'].toLocaleString()) : '') + '</td>\
+  </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
