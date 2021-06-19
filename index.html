@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 431px;
+            height: 595px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Elecciones2davuelta_0.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-18.919182936090976,-82.0548196534691],[0.3087549195066117,-68.14455769722734]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_Elecciones2davuelta_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Departamento:</th>\
+                        <td>' + (feature.properties['NOMBDEP'] !== null ? autolinker.link(feature.properties['NOMBDEP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia:</th>\
+                        <td>' + (feature.properties['NOMBPROV'] !== null ? autolinker.link(feature.properties['NOMBPROV'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distrito:</th>\
+                        <td>' + (feature.properties['NOMBDIST'] !== null ? autolinker.link(feature.properties['NOMBDIST'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Perú Libre (2da vuelta):</th>\
+                        <td>' + (feature.properties['CASTILLO'] !== null ? autolinker.link(feature.properties['CASTILLO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fuerza Popular (2da vuelta):</th>\
+                        <td>' + (feature.properties['FUJIMORI'] !== null ? autolinker.link(feature.properties['FUJIMORI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fuerza Popular (1ra vuelta):</th>\
+                        <td>' + (feature.properties['VOTOS_P11'] !== null ? autolinker.link(feature.properties['VOTOS_P11'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Perú Libre (1ra vuelta):</th>\
+                        <td>' + (feature.properties['VOTOS_P16'] !== null ? autolinker.link(feature.properties['VOTOS_P16'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+        function style_Elecciones2davuelta_0_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_Elecciones2davuelta_0rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_Elecciones2davuelta_0',
+                opacity: 1,
+                color: 'rgba(205,1,8,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,87,112,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_Elecciones2davuelta_0rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_Elecciones2davuelta_0',
+                opacity: 1,
+                color: 'rgba(237,128,3,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,191,95,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_Elecciones2davuelta_0');
+        map.getPane('pane_Elecciones2davuelta_0').style.zIndex = 400;
+        map.getPane('pane_Elecciones2davuelta_0').style['mix-blend-mode'] = 'normal';
+        var layer_Elecciones2davuelta_0 = new L.geoJson(json_Elecciones2davuelta_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Elecciones2davuelta_0',
+            layerName: 'layer_Elecciones2davuelta_0',
+            pane: 'pane_Elecciones2davuelta_0',
+            onEachFeature: pop_Elecciones2davuelta_0,
+            style: style_Elecciones2davuelta_0_0,
+        });
+        bounds_group.addLayer(layer_Elecciones2davuelta_0);
+        map.addLayer(layer_Elecciones2davuelta_0);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Elecciones (2da vuelta)<br /><table><tr><td style="text-align: center;"><img src="legend/Elecciones2davuelta_0_PedroCastillo0.png" /></td><td>Pedro Castillo</td></tr><tr><td style="text-align: center;"><img src="legend/Elecciones2davuelta_0_KeikoFujimori1.png" /></td><td>Keiko Fujimori</td></tr></table>': layer_Elecciones2davuelta_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
